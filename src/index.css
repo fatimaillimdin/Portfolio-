@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Bowlby+One&family=Poppins:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #bd2e15;
+  --color-brand-cream: #f4f4ec;
+  
+  --font-display: "Syne", sans-serif;
+  --font-technical: "Space Grotesk", sans-serif;
+  --font-accent: "Bowlby One", cursive;
+  --font-body: "Poppins", sans-serif;
+
+  --animate-marquee: marquee 20s linear infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-reverse-spin-slow: spin 12s linear infinite reverse;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-red font-body selection:bg-brand-red selection:text-white;
+  }
+  
+  h1, h2, h3, .font-ade {
+    @apply font-display uppercase tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke: 1px #bd2e15;
+    color: transparent;
+  }
+  
+  .direction-reverse {
+    animation-direction: reverse;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
